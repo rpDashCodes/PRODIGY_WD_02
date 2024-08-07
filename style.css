@@ -70,7 +70,7 @@ background-color: red;
     overflow-y: scroll;
     border-radius: 10px;
     padding: 20px;
-    scroll-behavior:smooth;
+    scroll-behavior: smooth;
 }
 #markList::-webkit-scrollbar{/* this selects the scroll bar*/
     display: none;
