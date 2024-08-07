@@ -63,7 +63,7 @@ mark.addEventListener("click",()=>{
         </div>`;
 
 })
- markList.scrollTop = container.scrollHeight;
+ markList.scrollTop = markList.scrollHeight;
 
 let reset = document.getElementById("reset");
 reset.addEventListener("click",()=>{
