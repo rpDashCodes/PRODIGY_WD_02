@@ -13,7 +13,7 @@ let stopWatch = document.getElementById("stopWatch");
 function startTimer(){
    startTime=Date.now()- passedTime;
    console.log(passedTime)
-    timer=setInterval(()=>updateTime(startTime),1000);
+    timer=setInterval(()=>updateTime(startTime),100);
 }
 
 function stopTimer(){
@@ -30,6 +30,9 @@ function stopTimer(){
 function updateTime(start){
     
     passedTime=Date.now() - start;
+
+    let milisecond = Math.floor((passedTime /100) %10);
+    (milisecond<10) ? milisecond="0"+milisecond : toString(milisecond)
     
     let seconds = Math.floor((passedTime / 1000)% 60);
     (seconds< 10 ) ? seconds="0"+seconds : toString(seconds); //required to change the number into a double digit number   
@@ -42,7 +45,7 @@ function updateTime(start){
     let hours = Math.floor((passedTime / 1000 / 60 / 60) % 24);
     (hours < 10 ) ? hours = "0"+hours : toString(hours);
 
-     display =`${hours} : ${minutes} : ${seconds} `;
+     display =`${hours} : ${minutes} : ${seconds} : ${milisecond} `;
     stopWatch.innerText=display;
 
 }
@@ -86,7 +89,7 @@ reset.addEventListener("click",()=>{
     {
         passedTime=0;
     clearInterval(timer);
-    display = "00 : 00 : 00";
+    display = "00 : 00 : 00 : 00";
     stopWatch.innerText=display;
     if(start.classList.contains("active"))
     {
@@ -95,7 +98,7 @@ reset.addEventListener("click",()=>{
     }
     markCounter=0;
     marklist.innerHTML=" ";
-    marklist.classList.add("none");
+    marklist.classList.add("none"); 
     }
     
 })
