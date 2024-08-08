@@ -12,7 +12,6 @@ let stopWatch = document.getElementById("stopWatch");
 
 function startTimer(){
    startTime=Date.now()- passedTime;
-   console.log(passedTime)
     timer=setInterval(()=>updateTime(startTime),1000);
 }
 
