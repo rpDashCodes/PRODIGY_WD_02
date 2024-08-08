@@ -4,6 +4,9 @@ let interval;
 let timer;
 let markCounter=0;
 let display ;
+let mark = document.getElementById("mark");
+let marklist = document.getElementById('markList');
+let reset = document.getElementById("reset");
 
 let stopWatch = document.getElementById("stopWatch");
 
@@ -16,7 +19,12 @@ function startTimer(){
 function stopTimer(){
     clearInterval(timer);
     passedTime = Date.now() - startTime;
-    
+    marklist.classList.remove("none");
+    markCounter++;
+    marklist.innerHTML +=`<div class="marks">
+            <span class="markid"># ${markCounter}</span> <span>PAUSED</span>
+        </div>`;
+        marklist.scrollTop = marklist.scrollHeight;
     
 }
 function updateTime(start){
@@ -38,6 +46,9 @@ function updateTime(start){
     stopWatch.innerText=display;
 
 }
+
+mark.disabled=true;//it stops user from clicking mark button before stopWatch started
+reset.disabled=true;
 let start = document.getElementById("start");
 start.addEventListener("click",()=>{
     start.classList.toggle("active");
@@ -45,28 +56,34 @@ start.addEventListener("click",()=>{
         {
             start.innerText="PAUSE";
             startTimer();
+            mark.disabled=false;
+            reset.disabled=true;
         }
     else{
         start.innerText="START";
         stopTimer();
-
+        mark.disabled=true;
+        reset.disabled=false;
     }
 });
 
-let mark = document.getElementById("mark");
-let marklist = document.getElementById('markList');
+
 mark.addEventListener("click",()=>{
     marklist.classList.remove("none");
     markCounter++;
     marklist.innerHTML +=`<div class="marks">
             <span class="markid"># ${markCounter}</span> <span>${display}</span>
         </div>`;
+        marklist.scrollTop = marklist.scrollHeight;
 
 })
 
-let reset = document.getElementById("reset");
+
 reset.addEventListener("click",()=>{
-    passedTime=0;
+    let confirm =window.confirm("Your StopWatch will be reset and all history will be cleared . Do you really want to reset ?")
+    if(confirm == 1)
+    {
+        passedTime=0;
     clearInterval(timer);
     display = "00 : 00 : 00";
     stopWatch.innerText=display;
@@ -78,5 +95,6 @@ reset.addEventListener("click",()=>{
     markCounter=0;
     marklist.innerHTML=" ";
     marklist.classList.add("none");
+    }
     
 })

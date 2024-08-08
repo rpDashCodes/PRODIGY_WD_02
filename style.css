@@ -34,7 +34,7 @@ main{
     width: 40%;
 }
 .button:hover{
-    cursor: pointer;
+    cursor: pointer; 
 }
 #start{
     background-color: #a2f6a2;
@@ -54,6 +54,10 @@ main{
 #reset:hover{
 background-color: red;
 }
+.button:disabled{
+    cursor: not-allowed;
+    background-color: white !important;
+}
 .markid{
     margin:0px 30px;
     width: 10%;
@@ -70,6 +74,7 @@ background-color: red;
     overflow-y: scroll;
     border-radius: 10px;
     padding: 20px;
+    scroll-behavior: smooth;
 }
 #markList::-webkit-scrollbar{/* this selects the scroll bar*/
     display: none;
