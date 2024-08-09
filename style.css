@@ -5,6 +5,7 @@
 }
 body{
     height: 100vh;
+    padding: 10px;
     background-image: linear-gradient(#4aa0ea, #3636dd, #a62be6);
     background-repeat: no-repeat;
 }
@@ -67,8 +68,9 @@ background-color: red;
 #markList{
     margin-top: 100px;
     grid-column: 1 / 4;
-    width: 100%;
-    height: 30rem;
+    width: 90%;
+    height: 60%;
+    margin: 20px 10px;
     background-color: rgba(0,0,0,0.3);
     backdrop-filter: blur(5px);
     overflow-y: scroll;
@@ -89,4 +91,33 @@ background-color: red;
     background-color: rgb(55, 55, 55);
     margin: 10px 0px;
     border-radius: 8px;
+}
+@media (max-width :832px) {
+    #stopWatch{
+        font-size: 50px;
+    }
+    main{
+        width: 100%;
+    }
+    .marks{
+        font-size: 15px;
+    }
+    .button{
+        padding:20px 0px;
+        width: 4rem;
+    }
+}
+@media (max-width:388px){
+    #stopWatch{
+        font-size: 30px;
+    }
+    .marks{
+        font-size: 9px;
+    }
+    .button{
+        font-size: 10px;
+        width: 3rem;
+        margin: 10px;
+    }
+
 }
