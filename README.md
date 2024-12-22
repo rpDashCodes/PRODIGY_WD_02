@@ -1,2 +1,2 @@
-This a stopWatch made using javascript date functin
+This a stopWatch made using javascript date function
 
