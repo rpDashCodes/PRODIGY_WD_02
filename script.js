@@ -47,7 +47,6 @@ function updateTime(start){
 
      display =`${hours} : ${minutes} : ${seconds} : ${miliseconds}`;
     stopWatch.innerText=display;
-    console.log(miliseconds);
     
 
 }
